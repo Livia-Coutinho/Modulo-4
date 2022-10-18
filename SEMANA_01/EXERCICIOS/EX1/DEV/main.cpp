@@ -2,10 +2,11 @@
 #include <string>
 
 // 1 -  Faça uma função que recebe uma certa medida e ajusta ela percentualmente 
-// entre dois valores mínimo e máximo e retorna esse valor
+// entre dois valores mínimo e máximo e retorna esse valor.
 
-               // aqui iniciará o meu código
 
+
+			
 // 2 - Faça uma função que simule a leitura de um sensor lendo o 
 // valor do teclado ao final a função retorna este valor
 
@@ -29,6 +30,10 @@
 
 // 5 - Faça uma função que pergunta ao usuário se ele deseja continuar o mapeamento e 
 // retorna verdadeiro ou falso
+
+
+
+
 
 
 // 6 - A função abaixo (que está incompleta) vai "dirigindo" virtualmente um robô 
