@@ -1,9 +1,9 @@
-//Questão 1 --> Realizar um ajuste (a partir de um min, um max e uma medida)	//////////////////
-//Questão 2 --> Ler um valor											        //////////////////
-//Questão 3 --> Função que guarde um valor a um vetor					        /////////////////
-//Questão 4 --> Pergunta e armazena as direções						            /////////////////
-//Questão 5 --> Deseja continuar										        /////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
+//Questão 1 --> Realizar um ajuste (a partir de um min, um max e uma medida)	
+//Questão 2 --> Ler um valor											        
+//Questão 3 --> Função que guarde um valor a um vetor					        
+//Questão 4 --> Pergunta e armazena as direções						            
+//Questão 5 --> Deseja continuar										        
+///////////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
 #include <string>
