@@ -10,6 +10,8 @@
 
 using namespace std; //biblioteca
 
+char *directions[4] = {(char *) "Direita", (char *)"Esquerda", (char *)"Frente", (char *)"Trás"};
+
 // 1 -  Faça uma função que recebe uma certa medida e ajusta ela percentualmente entre dois valores 
 //mínimo e máximo e retorna esse valor.
 
