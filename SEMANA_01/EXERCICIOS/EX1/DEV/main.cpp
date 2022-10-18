@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std; //biblioteca
+
 // 1 -  Faça uma função que recebe uma certa medida e ajusta ela percentualmente entre dois valores 
 //mínimo e máximo e retorna esse valor.
 
@@ -20,6 +22,13 @@ int ajusteDosValores (int minimo, int maximo, int medida) {
 			
 // 2 - Faça uma função que simule a leitura de um sensor lendo o  valor do teclado.
 //Ao final a função retorna este valor
+
+int reading () {
+	int value;
+	cout << "Digite um valor: ";
+	cin >> value;
+	return value;
+}
 
 // 3 - Faça uma função que armazena uma medida inteira qualquer  em um vetor fornecido. 
 //Note que como C não possui vetores nativos da linguagem, lembre-se que você precisa passar o valor máximo do 
