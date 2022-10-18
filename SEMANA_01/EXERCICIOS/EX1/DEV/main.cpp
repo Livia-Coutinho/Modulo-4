@@ -25,9 +25,9 @@ int ajusteDosValores (int minimo, int maximo, int medida) {
 // 2 - Faça uma função que simule a leitura de um sensor lendo o  valor do teclado.
 //Ao final a função retorna este valor
 
-int reading () {
+int reading (char directions) {
 	int value;
-	cout << "Digite um valor: ";
+	cout << "Digite um valor/a distância até: " << directions;
 	cin >> value;
 	return value;
 }
@@ -36,6 +36,14 @@ int reading () {
 //Note que como C não possui vetores nativos da linguagem, lembre-se que você precisa passar o valor máximo do 
 //vetor assim como a última posição preenchida.
 // Evite também que, por acidente, um valor seja escrito em uma área de memória fora do vetor
+
+//Criar uma função para armazenar a medida inteira
+
+int stock (int medida, int *vetor, int tamanhoMaximoVetor, int position){     //stock --> referência a armazenamento 
+	if (position < tamanhoMaximoVetor) {
+		
+	}
+}         
 
 // 4 - Faça uma função que recebe um vetor com 4 posições que contém o valor da distância de um pequeno robô 
 //até cada um dos seus 4 lados.
