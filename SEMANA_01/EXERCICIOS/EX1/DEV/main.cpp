@@ -41,8 +41,11 @@ int reading (char directions) {
 
 int stock (int medida, int *vetor, int tamanhoMaximoVetor, int position){     //stock --> referência a armazenamento 
 	if (position < tamanhoMaximoVetor) {
-		
+		vetor [position] = medida;
+		position += 1;
 	}
+
+	return position;
 }         
 
 // 4 - Faça uma função que recebe um vetor com 4 posições que contém o valor da distância de um pequeno robô 
