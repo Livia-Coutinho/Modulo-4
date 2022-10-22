@@ -64,7 +64,14 @@ int stock (int medida, int *vetor, int tamanhoMaximoVetor, int position){     //
 	cin >> resposta; //cin >> variável que armazena a resposta do usuário
 
 	return resposta;
- }
+}	
+
+ //if (resposta == "1"){
+	//return(true);
+ //}
+//else{
+	//return(false);
+ //}
 
 
 // 6 - A função abaixo (que está incompleta) vai "dirigindo" virtualmente um robô e através de 4 sensores em [
@@ -110,7 +117,7 @@ int dirige(int *vetor,int maxv){ //
 // O trecho abaixo irá utilizar as funções acima para ler os sensores e o movimento do robô e no final 
 //percorrer o vetor e mostrar o movimento a cada direção baseado na maior distância a cada movimento.
 char directionMaiorCaminho(int *vetorDeMovimentos, int *maiorDir){
-	
+
 }
 
 void percorre(int *vetor,int tamPercorrido){		
