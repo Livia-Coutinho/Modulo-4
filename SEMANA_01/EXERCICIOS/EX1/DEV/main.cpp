@@ -25,9 +25,9 @@ int ajusteDosValores (int minimo, int maximo, int medida) {
 // 2 - Faça uma função que simule a leitura de um sensor lendo o  valor do teclado.
 //Ao final a função retorna este valor
 
-int reading (char directions) {
+int reading (int indexDirections) {
 	int value;
-	cout << "Digite um valor/a distância até: " << directions;
+	cout << "Digite um valor/a distância até: " << directions[indexDirections];
 	cin >> value; //cin >> variável que armazena a resposta do usuário
 	return value;
 }
@@ -39,6 +39,8 @@ int reading (char directions) {
 
 //Criar uma função para armazenar a medida inteira
 
+
+//Função de armazenamento
 int stock (int medida, int *vetor, int tamanhoMaximoVetor, int position){     //stock --> referência a armazenamento 
 	if (position < tamanhoMaximoVetor) {
 		vetor [position] = medida;
@@ -52,6 +54,7 @@ int stock (int medida, int *vetor, int tamanhoMaximoVetor, int position){     //
 //até cada um dos seus 4 lados.
 // A função deve retornar duas informações: A primeira é a direção  de maior distância 
 //("Direita", "Esquerda", "Frente", "Tras") e a segunda é esta maior distância.
+
 
 
 // 5 - Faça uma função que pergunta ao usuário se ele deseja continuar o mapeamento e 
@@ -72,7 +75,6 @@ int stock (int medida, int *vetor, int tamanhoMaximoVetor, int position){     //
 //else{
 	//return(false);
  //}
-
 
 // 6 - A função abaixo (que está incompleta) vai "dirigindo" virtualmente um robô e através de 4 sensores em [
 //cada um dos 4 pontos do robo ("Direita", "Esquerda", "Frente", "Tras"). 
@@ -99,8 +101,9 @@ int dirige(int *vetor,int maxv){ //
 		// Vetor
 		// tamanho máx
 		// posição atual
-		for (int contDirections = 0; contDirections <= 3; contDirections++){    //índices de 0 a 3
-			int medida = reading(*directions[contDirections]); ///Guardou o digitado pelo usuário .. Chame a função de de leitura da medida para a "DireitaChamou a função de leitrua feitata acima" 
+		//for abaixo em referência a quarta questão (Pergunta e armazena as direções)
+		for (int contDirections = 0; contDirections <= 3; contDirections++){    //índices de 0 a 3 //for(variável, condição, mudança)   <--- estrutura
+			int medida = reading(contDirections); ///Guardou o digitado pelo usuário .. Chame a função de de leitura da medida para a "DireitaChamou a função de leitrua feitata acima" 
 			medida = ajusteDosValores(medida,0,830); //Função da questão um de conversão dos valores
 			positionAtualVetor = stock(medida, vetorMov, tamanhoMaximoVetor, positionAtualVetor); // Chame a função para armazenar a medida no vetor vjhdk 
 		} 
@@ -116,8 +119,18 @@ int dirige(int *vetor,int maxv){ //
 
 // O trecho abaixo irá utilizar as funções acima para ler os sensores e o movimento do robô e no final 
 //percorrer o vetor e mostrar o movimento a cada direção baseado na maior distância a cada movimento.
-char directionMaiorCaminho(int *vetorDeMovimentos, int *maiorDir){
-
+char *directionMaiorCaminho(int *vetorDeMovimentos, int *maiorDir){
+	int maiorDirection = vetorDeMovimentos[0];
+	int indice = 0;
+	for(int total = 0; total <=3; total++){
+		if (vetorDeMovimentos[total] > maiorDirection){
+			maiorDirection = vetorDeMovimentos[total];
+			indice = total;
+		}
+	}	
+	
+	*maiorDir = maiorDirection;
+	return directions[indice];
 }
 
 void percorre(int *vetor,int tamPercorrido){		
