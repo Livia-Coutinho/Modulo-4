@@ -21,7 +21,7 @@ int ajusteDosValores (int medida, int minimo, int maximo) {
 	//int resultado = medida/variacao;
 	//return resultado;
 	int resultado = (medida-minimo) * 100/(maximo-minimo);
-	return resultado;
+	return (medida- minimo) * 100 / (maximo-minimo);
 }
 			
 // 2 - Faça uma função que simule a leitura de um sensor lendo o  valor do teclado.
