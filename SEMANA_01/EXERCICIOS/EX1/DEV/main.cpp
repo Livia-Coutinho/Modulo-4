@@ -15,10 +15,12 @@ char *directions[4] = {(char *) "Direita", (char *)"Esquerda", (char *)"Frente",
 // 1 -  Faça uma função que recebe uma certa medida e ajusta ela percentualmente entre dois valores 
 //mínimo e máximo e retorna esse valor.
 
-int ajusteDosValores (int minimo, int maximo, int medida) {
-	medida = (medida - minimo) * 100; //Multiplicar a medida por 100 (ajuste percentual)
-	int variacao = maximo - minimo;
-	int resultado = medida/variacao;
+int ajusteDosValores (int medida, int minimo, int maximo) {
+	//medida = (medida - minimo) * 100; //Multiplicar a medida por 100 (ajuste percentual)
+	//int variacao = maximo - minimo;
+	//int resultado = medida/variacao;
+	//return resultado;
+	int resultado = (medida-minimo) * 100/(maximo-minimo);
 	return resultado;
 }
 			
