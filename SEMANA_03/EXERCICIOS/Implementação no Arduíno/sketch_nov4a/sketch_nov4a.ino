@@ -1,9 +1,9 @@
 #include <Arduino.h>
 
-#define red_led 36 //#define - nomear um valor constante
-#define green_led 39
-#define yellow_led 42
-#define blue_led 1
+#define red_led 1 //#define - nomear um valor constante
+#define green_led 42
+#define yellow_led 39
+#define blue_led 36 //white
 #define ldr_sensor 14
 #define buzzer 8
 
@@ -46,7 +46,7 @@ void convert_binary(int number){ //função para converter decimal em binário e
 
 void read(int number) {
 
-  int leds[4] = {36, 39, 42, 1};
+  int leds[4] = {1, 42, 39, 36};
   convert_binary(number);
 
   /*
@@ -58,18 +58,11 @@ void read(int number) {
     }
   }
   */
-
     
-    if (vetor[36]==1){
-      digitalWrite(leds[36], HIGH);
-    } else if (vetor[36]==0) {
-      digitalWrite(leds[36], LOW);
-    }
-
-    if (vetor[39]==1){
-      digitalWrite(leds[39], HIGH);
-    } else if (vetor[39]==0) {
-      digitalWrite(leds[39], LOW);
+    if (vetor[1]==1){
+      digitalWrite(leds[1], HIGH);
+    } else if (vetor[1]==0) {
+      digitalWrite(leds[1], LOW);
     }
 
     if (vetor[42]==1){
@@ -78,10 +71,16 @@ void read(int number) {
       digitalWrite(leds[42], LOW);
     }
 
-    if (vetor[1]==1){
-      digitalWrite(leds[1], HIGH);
-    } else if (vetor[1]==0) {
-      digitalWrite(leds[1], LOW);
+    if (vetor[39]==1){
+      digitalWrite(leds[39], HIGH);
+    } else if (vetor[39]==0) {
+      digitalWrite(leds[39], LOW);
+    }
+
+    if (vetor[36]==1){
+      digitalWrite(leds[36], HIGH);
+    } else if (vetor[36]==0) {
+      digitalWrite(leds[36], LOW);
     }
     
 }
@@ -124,10 +123,10 @@ void loop() {
     
   }
 
-  //digitalWrite(25, HIGH); //digitalWrite(porta, intensidade)
+  //digitalWrite(1, HIGH); //digitalWrite(porta, intensidade)
   //delay(1000); 
-  //digitalWrite(32, HIGH);
-  //digitalWrite(27, HIGH);
-  // digitalWrite(13, HIGH); //as linhas acima foram apenas para testar os leds antes de fazer, de fato, as funções
+  //digitalWrite(42, HIGH);
+  //digitalWrite(39, HIGH);
+  //digitalWrite(36, HIGH); //as linhas acima foram apenas para testar os leds antes de fazer, de fato, as funções
   delay(500); //equivale a meio segundo
 }
