@@ -94,7 +94,7 @@ export default function App(){
                 } //se o statejogo linha coluna for igual ao símbolo atual, há uma vitória
             if(pontos >= 3){ 
                     vitoria=true //se a pontuação for igual a 3 = vitória
-                    break //interromper o for
+                    break //interromper o for //a instrução break interrompe o loop atual
                     return 
             }
 
@@ -117,8 +117,21 @@ export default function App(){
     }
     }
 
-    //diagonais
-    jj
+        //diagonais
+        pontos=0
+        for (let d=0; d <3; d++){
+            if(jogo[d][d]){
+                if(jogo[l][c]==simboloAtual){
+                    pontos++
+                }
+            }
+        if(pontos >= 3){ 
+            vitoria=true //se a pontuação for igual a 3 = vitória
+            break //interromper o for
+            return    
+            }
+        }
+        
 
 }
 
