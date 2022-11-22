@@ -49,7 +49,7 @@ void read(int number) {
   int leds[4] = {1, 42, 39, 36};
   convert_binary(number);
 
-  /*
+  
   for (int i =0; i < 4; i++) {
     if (vetor[i]==1){
       digitalWrite(leds[i], HIGH);
@@ -57,8 +57,8 @@ void read(int number) {
       digitalWrite(leds[i], LOW);
     }
   }
-  */
-    
+  
+  /*
     if (vetor[1]==1){
       digitalWrite(leds[1], HIGH);
     } else if (vetor[1]==0) {
@@ -82,6 +82,7 @@ void read(int number) {
     } else if (vetor[36]==0) {
       digitalWrite(leds[36], LOW);
     }
+    */
     
 }
 
@@ -115,7 +116,7 @@ void loop() {
   if(digitalRead(5)==LOW){ //porta do botão
     Serial.println("Lendo");
     for(int index=0; index < posAtual; index++) {
-      //read(valores[index]);
+      read(valores[index]);
       buzz(valores[index]);
 
       delay(1000);
