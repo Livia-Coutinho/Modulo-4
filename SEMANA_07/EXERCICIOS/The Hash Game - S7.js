@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 
 export default function App(){
-
     //Estilização do game
 
     const tabuleiro={ //tabu
@@ -27,8 +26,8 @@ export default function App(){
     }
 
     const jogoinicial=[['', '', ''], ['', '', ''], ['', '', '']]//trocar o nome //jogo da velha é um array
-                 //posições vazias para constarem sem nada marcado
-                 //três linhas, com três colunas cada
+                //posições vazias para constarem sem nada marcado
+                //três linhas, com três colunas cada
     const [jogo, setJogo]= useState([['', '', ''], ['', '', ''], ['', '', '']])
                 //define as jogadas, que serão guardadas
                 //cada jogada estará em stateJogo
@@ -117,3 +116,10 @@ export default function App(){
         }
     }
     }
+
+    //diagonais
+    jj
+
+}
+
+    
