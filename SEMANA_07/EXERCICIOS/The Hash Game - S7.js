@@ -95,7 +95,7 @@ export default function App(){
             if(pontos >= 3){ 
                     vitoria=true //se a pontuação for igual a 3 = vitória
                     break //interromper o for //a instrução break interrompe o loop atual
-                    return 
+                    //return 
             }
 
             }
@@ -112,9 +112,8 @@ export default function App(){
         if(pontos >= 3){ 
             vitoria=true //se a pontuação for igual a 3 = vitória
             break //interromper o for
-            return    
+            //return    
         }
-    }
     }
 
         //diagonais
@@ -125,13 +124,26 @@ export default function App(){
                     pontos++
                 }
             }
+        }
         if(pontos >= 3){ 
             vitoria=true //se a pontuação for igual a 3 = vitória
-            break //interromper o for
-            return    
-            }
+            //return    
         }
+        pontos=0
+        let l=0
+        for (let c=2; c >=0; c--){
+            if(jogo[l][c]==simboloAtual){
+                pontos++
         
+            }
+            l++
+        }
+        if(pontos >= 3){ 
+            vitoria=true //pontuação for igual a 3 = vitória
+            //return  
+        }
+        return vitoria
+    }
 
 }
 
