@@ -29,13 +29,6 @@
 // //Como não está com nodemon para reload, é preciso ctrl + c no cmd e outro node index.js para exibir no localhost a versão recente do código.
 
 
-
-
-
-
-
-
-
 const express = require('express');
 
 const app = express();
