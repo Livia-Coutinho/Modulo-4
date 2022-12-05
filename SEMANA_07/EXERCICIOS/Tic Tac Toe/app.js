@@ -3,15 +3,42 @@ const app = express();
 const path = require('path');
 const router = express.Router();
 
-app.use(express.static(__dirname));
+let ganhador;
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname+"/SevenMinutes.html")) 
+//middleware
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
+
+app.use(express.static(__dirname)); 
+
+
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname+"/TicTacToe.html")) 
 });
 
-app.listen(process.env.port || 3000);
+//Rota abaixo para mostrar o ganhador
+router.post('/ganhador', (req, res)=>{
+    res.header("Access-Control-Allow-Origin", "*");
+    console.log(req.body);
+    ganhador = req.body; //variável ganhador recebe get.body
 
+});
+/////
+
+router.get('/esp/ganhador', (req, res) => {
+    res.send(ganhador);
+})
+
+router.get('/limpar/esp', (req, res) => {
+    ganhador = ""
+    res.send("Limpei o ganhador")
+})
+
+app.use('/', router);
+app.listen(process.env.port || 3000);
 console.log("funcionamento ok");
+
 
 // //Aplicação utilizando Node.JS (Java Script no back-end)
 
