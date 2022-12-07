@@ -6,15 +6,31 @@
 #include <HTTPClient.h> //execução das solicitações HTTP
 #include <WiFi.h> //para a comunicação com a internet
 
-#include <stdio.h>
-#include <>
+#include <stdio.h> //
+#include <String> //para concatenação 
 
 #define SERVIDOR_ENVIO "https://ur524n-3000.preview.csb.app/teobaldo"
 
 const char* SSIDS = "Inteli-COLLEGE"; //Vetores com nomes de rede e senhas dos Access Points
 const char* PWD = "QazWsx@123";
 
-const char*
+char * mensagem; //mensagem!!!
+
+char converter(char ch, int chave) {
+  if (!isalpha(ch)) return ch;
+  char offset = isupper(ch) ? 'A' : 'a';
+  return (char)((((ch + chave) - offset) % 26) + offset);
+}
+
+String criptografar(String entrada, int chave) {
+  String saida = "";
+  size_t len = entrada.length();
+  for (size_t i = 0; i < len; i++)
+    saida += converter(entrada[i], chave);
+  return saida;
+}
+
+
 void postDataToServer() {
  
   Serial.println("Posting JSON data to server...");         // Block until we are able to connect to the WiFi access point
@@ -29,7 +45,7 @@ void postDataToServer() {
     doc["turma"] = 1;
     doc["grupo"] = 2;
     doc["mensagem_de_texto"] = "Ansiosa por minhas mini férias";
-    doc["mensagem_de_cripto"] = 
+    doc["mensagem_de_cripto"] = mensagem; //(char declarada acima)
 
     JsonArray data = doc.createNestedArray("data");   // Add an array.    
      
@@ -52,7 +68,7 @@ void postDataToServer() {
 
 void getDataFromServer() {
  
-  Serial.println("Pegando dados do Servidor...");
+  Serial.println("Buscando os dados do Servidor...");
 
   HTTPClient http;     // Block until we are able to connect to the WiFi access point
      
@@ -97,6 +113,7 @@ void EnviarDados(int rede)     //Utilizado na função CONECTAR, para continuar 
     
 }
 
+//FUNÇÃO ABAIXO PODE SER EXCLUÍDA!
 // void ReceberDados(int rede)
 // {
 //   Serial.println("Conectando na rede: ");
@@ -115,7 +132,31 @@ void EnviarDados(int rede)     //Utilizado na função CONECTAR, para continuar 
 void setup() {
   Serial.begin(115200);
   WiFi.mode(WIFI_STA); 
+  WiFi.begin(SSIDS, PWD);
 }
+
+// void CrifaDeCesar(char *src, int chave)
+// {
+// 	int n = 0;
+// 	strlwr(src); // lower case = diminui as letras maísculas em minúsculas
+// 	while(src[n] != 0)
+// 	{
+// 		// ASCII
+// 		// A = 97;
+// 		// Z = 122;
+// 		if((src[n] + chave) > 122)
+// 		{
+// 			src[n] -= 26;
+// 		}
+// 		if((src[n] + chave) < 97)
+// 		{
+// 			src[n] += 26;
+// 		}
+// 		src[n] = src[n] + chave;
+// 		n++;
+// 	} 
+// }
+
 
 void loop() {
 
