@@ -15,9 +15,9 @@ const char* PWD = "vitorteamo"; //Usando o Mobile Hotspot de um colega por falha
 char * mensagem; //mensagem!!!
 
 char converter(char ch, int chave) {
-  if (!isalpha(ch)) return ch; //exclamação - negativo 
-  char offset = isupper(ch) ? 'A' : 'a';
-  return (char)((((ch + chave) - offset) % 26) + offset);
+  if (!isalpha(ch)) return ch; //exclamação - negativo  //isalpha checa se trata-se de alfabeto, ou não
+  char offset = isupper(ch) ? 'A' : 'a'; //isupper - verificação de letras maiúsculas
+  return (char)((((ch + chave) - offset) % 26) + offset); 
 }
 
 String criptografar(String entrada, int chave) {
@@ -29,14 +29,14 @@ String criptografar(String entrada, int chave) {
 }
 
 
-void postDataToServer() {
+void postDataToServer() {                      //UTILIZAÇÃO DO MÉTODO POST
  
-  Serial.println("Posting JSON data to server...");         // Block until we are able to connect to the WiFi access point
+  Serial.println("Posting JSON data to server...");         
   HTTPClient http;   
 
   String mensagem_cripto = criptografar("Ansiosa por minhas mini férias", 22);
      
-    http.begin("https://ur524n-3000.preview.csb.app/teobaldo");  
+    http.begin("https://ur524n-3000.preview.csb.app/teobaldo");  //link enviado pelo professor no Slack
     http.addHeader("Content-Type", "application/json");         
      
     StaticJsonDocument<200> doc;
@@ -45,7 +45,7 @@ void postDataToServer() {
     doc["turma"] = 1;
     doc["grupo"] = 2;
     doc["mensagem_de_texto"] = "Ansiosa por minhas mini férias";
-    doc["mensagem_de_cripto"] = mensagem_cripto; //(char declarada acima)
+    doc["mensagem_de_cripto"] = mensagem_cripto; //(char declarada acima) //a mensagem deve sair conforme código
 
     JsonArray data = doc.createNestedArray("data");   // Add an array.    
      
@@ -68,11 +68,11 @@ void postDataToServer() {
 void setup() {
   Serial.begin(115200);
   WiFi.mode(WIFI_STA); 
-  WiFi.begin(SSIDS, PWD);
+  WiFi.begin(SSIDS, PWD); //inicialização do #include <WiFi.h>
 }
 
 void loop() {
-   postDataToServer();
+  postDataToServer();
   delay(8000);
 }
 
